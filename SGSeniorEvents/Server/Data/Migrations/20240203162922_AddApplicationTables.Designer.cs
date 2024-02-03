@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SGSeniorEvents.Server.Data;
 
@@ -11,9 +12,11 @@ using SGSeniorEvents.Server.Data;
 namespace SGSeniorEvents.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240203162922_AddApplicationTables")]
+    partial class AddApplicationTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -438,26 +441,6 @@ namespace SGSeniorEvents.Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Colours");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(7952),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(7963),
-                            Name = "Black",
-                            UpdatedBy = "System"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(7966),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(7967),
-                            Name = "Blue",
-                            UpdatedBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("SGSeniorEvents.Shared.Domain.Customer", b =>
@@ -523,26 +506,6 @@ namespace SGSeniorEvents.Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Makes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8273),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8274),
-                            Name = "BMW",
-                            UpdatedBy = "System"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8276),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8277),
-                            Name = "Toyota",
-                            UpdatedBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("SGSeniorEvents.Shared.Domain.Model", b =>
@@ -571,44 +534,6 @@ namespace SGSeniorEvents.Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Models");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8471),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8472),
-                            Name = "3 Series",
-                            UpdatedBy = "System"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8474),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8474),
-                            Name = "X5",
-                            UpdatedBy = "System"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8475),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8476),
-                            Name = "Prius",
-                            UpdatedBy = "System"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8477),
-                            DateUpdated = new DateTime(2024, 2, 4, 1, 24, 33, 852, DateTimeKind.Local).AddTicks(8477),
-                            Name = "Rav4",
-                            UpdatedBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("SGSeniorEvents.Shared.Domain.Vehicle", b =>
