@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGSeniorEvents.Server", "SGSeniorEvents\Server\SGSeniorEvents.Server.csproj", "{8279199D-0EA8-4936-9FE2-8018385B10B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGSeniorEvents.Server", "SGSeniorEvents\Server\SGSeniorEvents.Server.csproj", "{8279199D-0EA8-4936-9FE2-8018385B10B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGSeniorEvents.Client", "SGSeniorEvents\Client\SGSeniorEvents.Client.csproj", "{300258E4-C5B7-4303-ADE2-B729BEB332FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGSeniorEvents.Client", "SGSeniorEvents\Client\SGSeniorEvents.Client.csproj", "{300258E4-C5B7-4303-ADE2-B729BEB332FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGSeniorEvents.Shared", "SGSeniorEvents\Shared\SGSeniorEvents.Shared.csproj", "{2AF2C653-B162-467C-9ACF-9581868EC4AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGSeniorEvents.Shared", "SGSeniorEvents\Shared\SGSeniorEvents.Shared.csproj", "{2AF2C653-B162-467C-9ACF-9581868EC4AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

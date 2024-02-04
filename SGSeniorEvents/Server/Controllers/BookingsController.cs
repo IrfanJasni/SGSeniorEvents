@@ -27,7 +27,8 @@ namespace SGSeniorEvents.Server.Controllers
         public async Task<IActionResult> GetBookings()
         {
 
-            var Bookings = await _unitOfWork.Bookings.GetAll();
+            var Bookings = await _unitOfWork.Bookings.GetAll(includes: q => q.Include(x =>
+            x.Vehicle).Include(x => x.Customer));
             return Ok(Bookings);
         }
 

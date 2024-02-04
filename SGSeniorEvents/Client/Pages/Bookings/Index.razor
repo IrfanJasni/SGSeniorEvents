@@ -1,0 +1,81 @@
+﻿@page "/Bookings/"
+
+@inject HttpClient _client
+@inject IJSRuntime js
+
+@attribute [Authorize]
+
+<h3 class="card-title">Events</h3>
+<br />
+
+<a href="/events/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Bookings
+</a>
+<br />
+<br />
+
+@if (Bookings == null)
+{
+    <div class="alert alert-info">Loading Bookings...</div>
+}
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Date Out</th>
+                <th>Date In</th>
+                <th>Vehicle ID</th>
+                <th>Customer ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Bookings)
+            {
+                <tr>
+                    <td>@booking.DateOut</td>
+                    <td>@booking.DateIn</td>
+                    <td>@booking.VehicleId</td>
+                    <td>@booking.CustomerId</td>
+                    <td>
+                        <a href="/events/view/@booking.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/events/edit/@booking.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(booking.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<Booking>? Bookings;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Bookings = await _client.GetFromJsonAsync<List<Booking>>($"{Endpoints.BookingsEndpoint}");
+    }
+
+    async Task Delete(int eventId)
+    {
+        if (Bookings != null)
+        {
+            var booking = Bookings.First(q => q.Id == eventId);
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {booking.Id}?");
+            if (confirm)
+            {
+                await _client.DeleteAsync($"{Endpoints.BookingsEndpoint}/{eventId}");
+                await OnInitializedAsync();
+            }
+        }
+    }
+}
